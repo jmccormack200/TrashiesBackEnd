@@ -57,8 +57,13 @@ func DeletePerson(w http.ResponseWriter, r *http.Request) {
 }
 
 func launch(w http.ResponseWriter, r *http.Request) {
-	t, _ := template.ParseFiles("index.html", "footer.html", "header.html")
-	t.ExecuteTemplate(w,"index", nil)
+	t, _ := template.ParseFiles("index.html", "templates/footer.html", "templates/header.html", "templates/imports.html", "templates/jsimports.html")
+	t.ExecuteTemplate(w, "index", nil)
+}
+
+func join(w http.ResponseWriter, r *http.Request) {
+	t, _ := template.ParseFiles("join.html", "templates/footer.html", "templates/header.html", "templates/imports.html", "templates/jsimports.html")
+	t.ExecuteTemplate(w, "join", nil)
 }
 
 func main() {
@@ -75,6 +80,7 @@ func main() {
 
 	router := mux.NewRouter()
 	router.HandleFunc("/home", launch).Methods("GET")
+	router.HandleFunc("/join", join).Methods("GET")
 	router.HandleFunc("/people", GetPeople).Methods("GET")
 	router.HandleFunc("/people/{id}", GetPerson).Methods("GET")
 	router.HandleFunc("/people/{id}", CreatePerson).Methods("POST")
