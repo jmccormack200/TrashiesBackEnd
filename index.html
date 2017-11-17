@@ -1,93 +1,85 @@
+{{define "index"}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  <title>Starter Template - Materialize</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>Starter Template - Materialize</title>
 
-  <!-- CSS  -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body>
-  <nav class="light-blue lighten-1" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Trashies</a>
-      <a href="index.html" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-    </div>
-  </nav>
-  <div class="section no-pad-bot" id="index-banner">
+
+{{template "header" .}}
+
+<div class="section no-pad-bot" id="index-banner">
     <div class="container">
-      <br><br>
-      <h1 class="header center orange-text">Hello, Dat Boi</h1>
-      <div class="row center">
-        <h5 class="header col s12 light">Welcome to the Trasies</h5>
-      </div>
-      <div class="row center">
-        <a href="http://materializecss.com/getting-started.html" id="create" class="btn-large waves-effect waves-light orange">Create</a>
-        <a href="join.html" id="join" class="btn-large waves-effect waves-light blue">Join</a>
-      </div>
-      <br><br>
+        <br><br>
+        <h1 class="header center orange-text">Hello, Dat Boi</h1>
+        <div class="row center">
+            <h5 class="header col s12 light">Welcome to the Trasies</h5>
+        </div>
+        <div class="row center">
+            <a href="http://materializecss.com/getting-started.html" id="create"
+               class="btn-large waves-effect waves-light orange">Create</a>
+            <a href="join.html" id="join" class="btn-large waves-effect waves-light blue">Join</a>
+        </div>
+        <br><br>
     </div>
-  </div>
+</div>
 
 
-  <div class="container">
+<div class="container">
     <div class="section">
 
-      <!--   Icon Section   -->
-      <div class="row">
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons">flash_on</i></h2>
-            <h5 class="center">Speeds up development</h5>
-            <p class="light">Doggo ipsum sub woofer borkdrive you are doin me a concern doggo porgo, you are doin me a concern blop pupper. Most angery pupper</p>
-          </div>
+        <!--   Icon Section   -->
+        <div class="row">
+            <div class="col s12 m4">
+                <div class="icon-block">
+                    <h2 class="center light-blue-text"><i class="material-icons">flash_on</i></h2>
+                    <h5 class="center">Speeds up development</h5>
+                    <p class="light">Doggo ipsum sub woofer borkdrive you are doin me a concern doggo porgo, you are
+                        doin me a concern blop pupper. Most angery pupper</p>
+                </div>
+            </div>
+
+            <div class="col s12 m4">
+                <div class="icon-block">
+                    <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
+                    <h5 class="center">User Experience Focused</h5>
+
+                    <p class="light">fluffer bork smol borking doggo with a long snoot for pats waggy wags, length boy
+                        puggo super chub big ol pupper you are doing me a frighten. Doge shooberino mlem, you are doing
+                        me a frighten. Such treat long water shoob heckin</p>
+                </div>
+            </div>
+
+            <div class="col s12 m4">
+                <div class="icon-block">
+                    <h2 class="center light-blue-text"><i class="material-icons">settings</i></h2>
+                    <h5 class="center">Easy to work with</h5>
+
+                    <p class="light">floof doggorino ruff, woofer the neighborhood pupper. Puggo porgo wow very biscit
+                        super chub, dat tungg tho doggo, shibe very hand that feed shibe. Stop it fren I am bekom fat
+                        extremely cuuuuuute</p>
+                </div>
+            </div>
         </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
-            <h5 class="center">User Experience Focused</h5>
-
-            <p class="light">fluffer bork smol borking doggo with a long snoot for pats waggy wags, length boy puggo super chub big ol pupper you are doing me a frighten. Doge shooberino mlem, you are doing me a frighten. Such treat long water shoob heckin</p>
-          </div>
-        </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons">settings</i></h2>
-            <h5 class="center">Easy to work with</h5>
-
-            <p class="light">floof doggorino ruff, woofer the neighborhood pupper. Puggo porgo wow very biscit super chub, dat tungg tho doggo, shibe very hand that feed shibe. Stop it fren I am bekom fat extremely cuuuuuute</p>
-          </div>
-        </div>
-      </div>
 
     </div>
     <br><br>
-  </div>
-
-  <footer class="page-footer orange">
-    <div class="container">
-      <div class="row">
-        <div class="col l6 s12">
-          <h5 class="white-text">Company Bio</h5>
-          <p class="grey-text text-lighten-4">We are become trash</p>
-        </div>
-      </div>
-    </div>
-    <div class="footer-copyright">
-      <div class="container">
-      Made by <a class="orange-text text-lighten-3" href="https://www.youtube.com/watch?v=SW-BU6keEUw">Idiots</a>
-      </div>
-    </div>
-  </footer>
+</div>
 
 
-  <!--  Scripts-->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="js/materialize.js"></script>
-  <script src="js/init.js"></script>
+{{template "footer" .}}
 
-  </body>
+<!--  Scripts-->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="js/materialize.js"></script>
+<script src="js/init.js"></script>
+
+</body>
 </html>
+{{end}}

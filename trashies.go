@@ -57,9 +57,8 @@ func DeletePerson(w http.ResponseWriter, r *http.Request) {
 }
 
 func launch(w http.ResponseWriter, r *http.Request) {
-	t, _ := template.ParseFiles("index.html")
-	t.Execute(w, nil)
-	log.Println("YEEE")
+	t, _ := template.ParseFiles("index.html", "footer.html", "header.html")
+	t.ExecuteTemplate(w,"index", nil)
 }
 
 func main() {
