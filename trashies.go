@@ -57,24 +57,51 @@ func DeletePerson(w http.ResponseWriter, r *http.Request) {
 }
 
 func launch(w http.ResponseWriter, r *http.Request) {
-	t, _ := template.ParseFiles("index.html", "footer.html", "header.html")
-	t.ExecuteTemplate(w,"index", nil)
+	baseResponseHandler(w, r, "index.html", "index")
+}
+
+func join(w http.ResponseWriter, r *http.Request) {
+	baseResponseHandler(w, r, "join.html", "join")
+}
+
+func waiting(w http.ResponseWriter, r *http.Request) {
+	baseResponseHandler(w, r, "waiting.html", "waiting")
+}
+
+func voting(w http.ResponseWriter, r *http.Request) {
+	baseResponseHandler(w, r, "voting.html", "voting")
+}
+
+func baseResponseHandler(w http.ResponseWriter, r *http.Request, templatePath string, templateName string) {
+	baseTemplates := []string{"templates/footer.html", "templates/navbar.html", "templates/header.html", "templates/jsimports.html"}
+	baseTemplates = append(baseTemplates, templatePath)
+	t, err := template.ParseFiles(baseTemplates...)
+	if err != nil {
+		print(err)
+	}
+	t.ExecuteTemplate(w, templateName, nil)
 }
 
 func main() {
 
 	cssHandler := http.FileServer(http.Dir("./css/"))
 	jsHandler := http.FileServer(http.Dir("./js/"))
+	imageHandler := http.FileServer(http.Dir("./images/"))
 
 	http.Handle("/css/", http.StripPrefix("/css/", cssHandler))
 	http.Handle("/js/", http.StripPrefix("/js/", jsHandler))
+	http.Handle("/images/", http.StripPrefix("/images/", imageHandler))
 
 	people = append(people, Person{ID: "1", FirstName: "John", LastName: "Doe", Address: &Address{City: "City X", State: "State X"}})
 	people = append(people, Person{ID: "2", FirstName: "Koko", LastName: "Doe", Address: &Address{City: "City Z", State: "State Y"}})
 	people = append(people, Person{ID: "3", FirstName: "Francis", LastName: "Sunday"})
 
 	router := mux.NewRouter()
-	router.HandleFunc("/home", launch).Methods("GET")
+	router.HandleFunc("/index", launch).Methods("GET")
+	router.HandleFunc("/join", join).Methods("GET")
+	router.HandleFunc("/waiting", waiting).Methods("GET")
+	router.HandleFunc("/voting", voting).Methods("GET")
+
 	router.HandleFunc("/people", GetPeople).Methods("GET")
 	router.HandleFunc("/people/{id}", GetPerson).Methods("GET")
 	router.HandleFunc("/people/{id}", CreatePerson).Methods("POST")
